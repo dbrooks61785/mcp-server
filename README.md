@@ -4,7 +4,7 @@ A simple Model Context Protocol (MCP) server implementation in Python.
 
 ## Overview
 
-This is a basic MCP server that provides a "hello" tool as an example. You can extend it with your own custom tools to integrate with AI assistants like Claude Desktop.
+This is a basic MCP server that provides a "hello" tool as an example. You can extend it with your own custom tools to integrate with AI assistants like Perplexity/Comet, ChatGPT, and other AI assistants
 
 ## Features
 
@@ -43,28 +43,33 @@ Run the server directly:
 python server.py
 ```
 
-### Connecting to Claude Desktop
+### Connecting to AI Assistants (Perplexity/Comet & ChatGPT)
 
-To use this server with Claude Desktop, add the following configuration to your Claude Desktop config file:
 
-**Mac**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+This MCP server can be deployed and connected to AI assistants that support the Model Context Protocol.
 
-**Windows**: `%APPDATA%\\Claude\\claude_desktop_config.json`
+#### For ChatGPT with MCP Support
 
-```json
-{
-  "mcpServers": {
-    "hello-world-server": {
-      "command": "python",
-      "args": [
-        "/path/to/your/mcp-server/server.py"
-      ]
-    }
-  }
-}
+ChatGPT is adding MCP support. Once available, you'll be able to:
+1. Deploy this server to a hosting platform (Replit, Railway, etc.)
+2. Get the server URL
+3. Connect it in ChatGPT's MCP settings
+
+#### For Perplexity/Comet
+
+Perplexity's Comet browser assistant supports MCP servers:
+1. Deploy your server to a public URL or run it locally
+2. Configure Comet to connect to your MCP server endpoint
+3. Your custom tools will be available in Comet conversations
+
+#### Local Development
+
+For local development and testing:
+```bash
+python server.py
 ```
 
-Replace `/path/to/your/mcp-server/` with the actual path to this repository.
+The server runs on stdio and can be tested with any MCP-compatible client.
 
 ## Available Tools
 
@@ -116,10 +121,10 @@ mcp-server/
 - Verify all dependencies are installed: `pip install -r requirements.txt`
 - Check Python version: `python --version` (should be 3.10+)
 
-### Claude Desktop can't connect
-- Verify the path in your config file is correct
-- Make sure to use the full absolute path to server.py
-- Restart Claude Desktop after changing the config
+### AI Assistant can't connect
+- Verify the server URL is accessible
+- Check that the server is running
+- Ensure your AI assistant supports MCP protocol
 
 ## License
 
@@ -133,4 +138,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 - [MCP Documentation](https://modelcontextprotocol.io/)
 - [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk)
-- [Claude Desktop](https://claude.ai/desktop)
+- [Perplexity](https://www.perplexity.ai/)
