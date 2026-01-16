@@ -91,6 +91,53 @@ A simple greeting tool that welcomes a person by name.
 Hello, Alice! Welcome to the MCP server.
 ```
 
+### send_email
+
+Send an email via Gmail.
+
+**Parameters:**
+- `to` (string, required): Recipient email address
+- `subject` (string, required): Email subject
+- `body` (string, required): Email body content
+
+**Example:**
+```json
+{
+  "to": "recipient@example.com",
+  "subject": "Meeting Reminder",
+  "body": "Don't forget our meeting tomorrow at 2pm."
+}
+```
+
+### read_emails
+
+Read recent emails from Gmail inbox.
+
+**Parameters:**
+- `max_results` (integer, optional): Maximum number of emails to retrieve (default: 10)
+
+**Example:**
+```json
+{
+  "max_results": 5
+}
+```
+
+**Response:**
+Returns a formatted list of emails with sender, subject, and date.
+
+## Gmail Configuration
+
+To use Gmail tools, you need to set up Google API credentials:
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable the Gmail API
+4. Create OAuth 2.0 credentials (Desktop application type)
+5. Download the credentials and save as `credentials.json` in the project directory
+6. On first run, you'll be prompted to authorize the application
+7. A `token.pickle` file will be created to store your authentication
+
 ## Adding Your Own Tools
 
 To add custom tools, edit `server.py`:
