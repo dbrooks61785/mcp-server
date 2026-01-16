@@ -67,7 +67,7 @@ async def list_tools() -> list[Tool]:
                 },
                 "required": ["name"]
             }
-        )
+        ),
                 Tool(
             name="send_email",
             description="Send an email via Gmail",
