@@ -156,6 +156,49 @@ mcp-server/
 └── README.md         # This file
 ```
 
+## Deployment
+
+### Deploying to Fly.io
+
+Fly.io is a great platform for deploying your MCP server. Here's how to deploy:
+
+1. Install the Fly CLI:
+```bash
+curl -L https://fly.io/install.sh | sh
+```
+
+2. Login to Fly.io:
+```bash
+fly auth login
+```
+
+3. Create a new Fly app:
+```bash
+fly launch
+```
+
+4. Follow the prompts:
+   - Choose an app name (or let Fly generate one)
+   - Select a region close to your users
+   - Don't add a PostgreSQL database (not needed)
+   - Don't add a Redis database (not needed)
+   - Deploy now? Say yes
+
+5. Your server will be deployed and you'll get a URL like `https://your-app-name.fly.dev`
+
+6. To update your deployment:
+```bash
+fly deploy
+```
+
+### Environment Variables
+
+If your server needs environment variables (like API keys), set them with:
+
+```bash
+fly secrets set VARIABLE_NAME=value
+```
+
 ## Requirements
 
 - Python 3.10 or higher
